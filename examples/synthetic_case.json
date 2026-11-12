@@ -1,0 +1,23 @@
+{
+  "id": "demo-001",
+  "is_synthetic": true,
+  "title": "Synthetic educational case (NOT REAL)",
+  "subjects": [
+    {
+      "id": "demo-subject",
+      "display_name": "Fictional Person"
+    }
+  ],
+  "assertions": [
+    {
+      "text": "A fictional person allegedly damaged property",
+      "status": "alleged",
+      "source_document_id": "SYNTHETIC-FIXTURE"
+    }
+  ],
+  "expected_assessment": {
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "guilt_probability": null,
+    "severity_msu": null
+  }
+}

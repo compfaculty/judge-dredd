@@ -1,0 +1,193 @@
+{
+  "title": "United States v. Eichman et al., 496 U.S. 310 (1990), No. 89-1433",
+  "source": {
+    "url": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep496/usrep496310/usrep496310.pdf",
+    "document_id": "USREPORTS-496-310",
+    "court": "Supreme Court of the United States",
+    "docket": "89-1433 (scope); 89-1434 consolidated but excluded",
+    "document_date": "1990-06-11",
+    "version": "Bound United States Reports, volume 496, pp. 310–324",
+    "retrieved_at": "2026-11-12T07:11:54.802431+00:00",
+    "sha256": "bf3363235ac5359c4d1c4c4603af9fe8e80942a9b26e8ca9a29f42268b162fd6",
+    "publication_status": "Official published judicial opinion, Library of Congress scan",
+    "rights_basis": "US federal judicial opinion; retain with attribution for research. Third-party material requires separate review; no blanket license assertion.",
+    "rights_policy_url": "https://www.govinfo.gov/about/policies#public-domain",
+    "retention": "Retain exact public PDF and extracted pages for reproducibility; no bulk collection",
+    "privacy_review": "No addresses or witness identifiers added; no trial exhibits imported"
+  },
+  "law_reference": "18 U.S.C. § 700, Flag Protection Act of 1989, 103 Stat. 777; 1988 edition, Supplement I, as reproduced at 496 U.S. 314 (historical version only)",
+  "allegation": "Prosecution alleged knowing flag burning at the Capitol (opinion § I, p. 312).",
+  "evidence": [
+    {
+      "id": "eichman-allegation",
+      "pdf_page": 3,
+      "pinpoint": "496 U.S. 312, § I, first paragraph (PDF p. 3)",
+      "kind": "prosecution_summary",
+      "description": "Capitol flag-burning prosecution, as recounted by appellate court.",
+      "anchor": "United States Capitol"
+    },
+    {
+      "id": "eichman-procedure",
+      "pdf_page": 4,
+      "pinpoint": "496 U.S. 313, first paragraph and footnote 1 (PDF p. 4)",
+      "kind": "procedural_history",
+      "description": "Dismissal and direct appeal; companion-case limitation.",
+      "anchor": "dismissed the charges"
+    },
+    {
+      "id": "eichman-law",
+      "pdf_page": 5,
+      "pinpoint": "496 U.S. 314, § 700(a)(1)–(2), (b) (PDF p. 5)",
+      "kind": "historical_law",
+      "description": "Historical statutory wording reproduced by the Court.",
+      "anchor": "worn or soiled"
+    },
+    {
+      "id": "eichman-dispute",
+      "pdf_page": 6,
+      "pinpoint": "496 U.S. 315, first–third paragraphs (PDF p. 6)",
+      "kind": "party_arguments",
+      "description": "Government concession and constitutional argument.",
+      "anchor": "The Government concedes"
+    },
+    {
+      "id": "eichman-holding",
+      "pdf_page": 9,
+      "pinpoint": "496 U.S. 318, first paragraph (PDF p. 9)",
+      "kind": "judicial_finding",
+      "description": "Majority constitutional reasoning.",
+      "anchor": "First"
+    },
+    {
+      "id": "eichman-judgment",
+      "pdf_page": 10,
+      "pinpoint": "496 U.S. 319, disposition before dissent (PDF p. 10)",
+      "kind": "official_judgment",
+      "description": "District Court judgments affirmed.",
+      "anchor": "Affirmed."
+    },
+    {
+      "id": "eichman-header",
+      "pdf_page": 1,
+      "pinpoint": "496 U.S. 310, caption/date line (PDF p. 1)",
+      "kind": "court_metadata",
+      "description": "Argument and decision dates.",
+      "anchor": "Decided June 11, 1990"
+    }
+  ],
+  "assertions": [
+    {
+      "text": "The prosecution alleged knowing flag burning at the Capitol.",
+      "status": "alleged",
+      "evidence_id": "eichman-allegation"
+    },
+    {
+      "text": "The Government argued that the Act was constitutional.",
+      "status": "disputed",
+      "evidence_id": "eichman-dispute"
+    },
+    {
+      "text": "The majority held the asserted interest insufficient under the First Amendment.",
+      "status": "court_established",
+      "evidence_id": "eichman-holding"
+    }
+  ],
+  "coverage": [
+    {
+      "element": "Knowing conduct",
+      "evidence_ids": [
+        "eichman-allegation"
+      ],
+      "coverage": "allegation_only",
+      "analysis": "No independent trial proof imported.",
+      "interpretation_status": "researcher_claim",
+      "law_evidence_id": "eichman-law"
+    },
+    {
+      "element": "Burning",
+      "evidence_ids": [
+        "eichman-allegation"
+      ],
+      "coverage": "allegation_only",
+      "analysis": "Appellate narrative is not an exhibit or credibility determination.",
+      "interpretation_status": "researcher_claim",
+      "law_evidence_id": "eichman-law"
+    },
+    {
+      "element": "Flag within § 700(b)",
+      "evidence_ids": [
+        "eichman-allegation",
+        "eichman-law"
+      ],
+      "coverage": "not_independently_verified",
+      "analysis": "No physical exhibit or statutory-definition finding imported.",
+      "interpretation_status": "researcher_claim",
+      "law_evidence_id": "eichman-law"
+    },
+    {
+      "element": "Disposal exception § 700(a)(2)",
+      "evidence_ids": [
+        "eichman-law",
+        "eichman-allegation"
+      ],
+      "coverage": "unresolved_on_imported_record",
+      "analysis": "Track exception separately; no burden allocation inferred.",
+      "interpretation_status": "researcher_claim",
+      "law_evidence_id": "eichman-law"
+    },
+    {
+      "element": "Constitutional applicability (legal barrier, not offense element)",
+      "evidence_ids": [
+        "eichman-dispute",
+        "eichman-holding"
+      ],
+      "coverage": "judicial_legal_finding",
+      "analysis": "Legal invalidity must be separated from factual proof.",
+      "interpretation_status": "researcher_claim",
+      "law_evidence_id": "eichman-law"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1990",
+      "description": "District Court dismissed § 700 charge; Government appealed directly.",
+      "evidence_id": "eichman-procedure"
+    },
+    {
+      "date": "1990-05-14",
+      "description": "Supreme Court oral argument.",
+      "evidence_id": "eichman-header"
+    },
+    {
+      "date": "1990-06-11",
+      "description": "Supreme Court decision.",
+      "evidence_id": "eichman-header"
+    }
+  ],
+  "judgment": {
+    "disposition": "Dismissal of § 700 charge affirmed; not an acquittal after a fact trial.",
+    "appeal_status": "Supreme Court direct appeal resolved; no later docket history imported",
+    "evidence_id": "eichman-judgment"
+  },
+  "assessment": {
+    "type": "non_binding_research_assessment",
+    "conclusion": "ABSTAIN_ON_FACTUAL_GUILT",
+    "rationale": "The imported appellate record supports an evidence inventory, not independent fact-finding. Constitutional applicability requires legal review.",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "evidence_ids": [
+      "eichman-allegation",
+      "eichman-law",
+      "eichman-holding"
+    ]
+  },
+  "limitations": [
+    "Ground truth unavailable: no trial exhibits, witness testimony, or independent factual reconstruction imported.",
+    "One appellate opinion is one dependent source, not six independent confirmations. Verified means document identity/page mapping only.",
+    "Closed scope: No. 89-1433 § 700 charge only. Companion No. 89-1434 property charge remained pending (p. 313 n. 1); its later outcome is unknown here.",
+    "Procedural closure is limited to the affirmed dismissal; no comprehensive later docket or rehearing search performed.",
+    "This is a curated mapping with extraction checks, not automated legal inference; independent human/legal review is outstanding.",
+    "No blinded benchmark: judgment and reasoning were visible during curation.",
+    "No calibrated guilt model, normative MSU scale, risk predictor, or sentencing model exists. Values remain null.",
+    "Historical statutory text is not a statement of current law. Normative judgment and descriptive legal outcome are separate."
+  ]
+}

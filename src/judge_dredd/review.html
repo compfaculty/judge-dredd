@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case Research Review</title>
+<style>
+body{font:17px/1.55 system-ui;max-width:1100px;margin:40px auto;padding:0 22px;color:#182735;background:#f6f7f9}section{background:white;padding:24px;margin:22px 0;border:1px solid #d5dde5;border-radius:10px}h1{line-height:1.2}h2{font-size:23px}table{border-collapse:collapse;width:100%;font-size:15px}th,td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid #ddd}pre{white-space:pre-wrap;overflow-wrap:anywhere}label{display:block;margin:16px 0}input,select,textarea,button{font:inherit;padding:9px;max-width:100%;box-sizing:border-box}textarea{width:100%;min-height:140px}button{cursor:pointer}#message{font-weight:bold}a{color:#155c9d}.scroll{overflow:auto}
+</style>
+<h1>Criminal Case Review</h1>
+<p><strong>HUMAN_REVIEW_REQUIRED</strong> · Research prototype</p>
+<p>Non-binding assessment form. Guilt probability, MSU, and risk forecasts are unavailable. No sentencing decision is generated.</p>
+<p id="message" role="status" aria-live="polite">Loading…</p>
+<section><h2>System assessment</h2><pre id="assessment"></pre></section>
+<section><h2>Limitations and uncertainty</h2><ul id="limits"></ul></section>
+<section><h2>Evidence inventory</h2><div class="scroll"><table><thead><tr><th>Material</th><th>Type / source</th><th>Page</th></tr></thead><tbody id="evidence"></tbody></table></div><pre id="source"></pre></section>
+<section><h2>Assertions and statuses</h2><ul id="assertions"></ul></section>
+<section><h2>Charge-element coverage</h2><p>Editorial annotation, not a finding of proof beyond a reasonable doubt.</p><div class="scroll"><table><thead><tr><th>Element</th><th>Coverage</th><th>Explanation / references</th></tr></thead><tbody id="coverage"></tbody></table></div></section>
+<section><h2>Timeline</h2><ul id="timeline"></ul></section>
+<section><h2>Official judgment</h2><p>The outcome was known during preparation: this review is not a blinded experiment.</p><button id="reveal" type="button">Show separate court record</button><pre id="judgment"></pre></section>
+<section><h2>Researcher assessment</h2><p>Agreement or disagreement concerns the evidence review. This is not a judicial verdict or independent model validation.</p>
+<form id="review"><fieldset id="fields" disabled><label>Name / pseudonym <input name="reviewer" required maxlength="160"></label><label>Opinion <select name="opinion"><option value="abstain">Abstain</option><option value="need_more_evidence">More evidence needed</option><option value="agree">Agree with the review</option><option value="disagree">Disagree with the review</option></select></label><label>Rationale: identify materials, gaps, and legal questions <textarea name="rationale" required maxlength="20000"></textarea></label><button>Save human assessment</button></fieldset></form><pre id="saved"></pre>
+</section>
+<script>
+'use strict';
+const base=location.pathname.replace(/\/review\/?$/, '');
+const el=id=>document.getElementById(id);
+const show=(id,value)=>el(id).textContent=typeof value==='string'?value:JSON.stringify(value,null,2);
+async function request(path,options){const response=await fetch(base+path,options);const data=await response.json();if(!response.ok)throw new Error(JSON.stringify(data));return data;}
+function row(id,values){const tr=document.createElement('tr');for(const value of values){const td=document.createElement('td');td.textContent=value;tr.append(td);}el(id).append(tr);return tr;}
+function list(id,values){for(const value of values){const li=document.createElement('li');li.textContent=value;el(id).append(li);}}
+let report;
+(async()=>{try{
+report=await request('/assessment');
+show('assessment',{assessment_id:report.assessment_id,model_version:report.model_version,frozen_at:report.frozen_at,assessment:report.assessment,evaluation:report.evaluation,source:report.source});
+list('limits',report.limitations);
+for(const item of report.evidence_inventory||[]){const tr=row('evidence',[item.description,item.kind,item.pinpoint]);const button=document.createElement('button');button.type='button';button.textContent='Read page';button.onclick=async()=>{try{show('source',await request('/sources/'+item.pdf_page));}catch(error){show('message',error.message);}};tr.lastChild.append(document.createElement('br'),button);}
+list('assertions',report.assertions.map(item=>`${item.status}: ${item.text} [${item.evidence_id}]`));
+for(const item of report.charge_element_coverage||[])row('coverage',[item.element,item.coverage,item.analysis+' ['+item.evidence_ids.join(', ')+']']);
+list('timeline',(report.timeline||[]).map(item=>`${item.date}: ${item.description} [${item.evidence_id}]`));
+el('fields').disabled=false;show('message','Report loaded. Source data and assessments require human review.');
+}catch(error){show('message',error.message);}})();
+el('reveal').onclick=async()=>{try{show('judgment',await request('/judgments'));}catch(error){show('message',error.message);}};
+el('review').onsubmit=async event=>{event.preventDefault();el('fields').disabled=true;try{const data={reviewer:event.target.elements.reviewer.value,opinion:event.target.elements.opinion.value,rationale:event.target.elements.rationale.value,assessment_id:report.assessment_id};
+show('saved',await request('/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}));show('message','Assessment saved separately from the official judgment.');}catch(error){show('message',error.message);}finally{el('fields').disabled=false;}};
+</script>
+</html>
